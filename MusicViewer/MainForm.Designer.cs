@@ -223,9 +223,10 @@
             // 
             this.textBoxGenres.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxGenres.Location = new System.Drawing.Point(315, 204);
+            this.textBoxGenres.Multiline = true;
             this.textBoxGenres.Name = "textBoxGenres";
             this.textBoxGenres.ReadOnly = true;
-            this.textBoxGenres.Size = new System.Drawing.Size(145, 13);
+            this.textBoxGenres.Size = new System.Drawing.Size(145, 20);
             this.textBoxGenres.TabIndex = 18;
             // 
             // MainForm

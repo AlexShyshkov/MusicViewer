@@ -21,108 +21,6 @@ namespace MusicViewer
             InitializeComponent();
         }
 
-        private void buttonLoad_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                ClearMusicInfo();
-                musicViewerListBox.Items.Clear();
-                LoadFile(openFileDialog.FileName);
-                foreach (var artist in artists)
-                {
-                    comboBoxSelect.Items.Add(artist);
-                }
-            }
-        }
-
-        private void comboBoxSelect_SelectedValueChanged(object sender, EventArgs e)
-        {
-            musicViewerListBox.Items.Clear();
-            ClearMusicInfo();
-            startDate = DateTime.MaxValue;
-            endDate = DateTime.MinValue;
-
-            foreach (var track in tracks)
-            {
-                foreach (var artist in artists)
-                {
-                    if (comboBoxSelect.Text == artist.Name && track.codeIdArtist == artist.Id)
-                    {
-                        musicViewerListBox.Items.Add(track);
-
-                        if (DateTime.Parse(track.DateOfRelease) < startDate)
-                        {
-                            startDate = DateTime.Parse(track.DateOfRelease);
-                        }
-
-                        if (DateTime.Parse(track.DateOfRelease) > endDate)
-                        {
-                            endDate = DateTime.Parse(track.DateOfRelease);
-                        }
-                    }
-                }
-            }
-            dateTimePickerFrom.Value = startDate;
-            dateTimePickerTo.Value = endDate;
-        }
-
-        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateTimePickerFrom.Value < startDate || dateTimePickerFrom.Value > dateTimePickerTo.Value)
-            {
-                dateTimePickerFrom.Value = startDate;
-            }
-        }
-
-        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateTimePickerTo.Value > endDate || dateTimePickerTo.Value <dateTimePickerFrom.Value)
-            {
-                dateTimePickerTo.Value = endDate;
-            }
-        }
-
-        private void musicViewerListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClearMusicInfo();
-            foreach (var track in tracks)
-            {
-                if (musicViewerListBox.SelectedItem != null && musicViewerListBox.SelectedItem.ToString() == track.Name)
-                {
-                    foreach (var artist in artists)
-                    {
-                        if (track.codeIdArtist == artist.Id)
-                        {
-                            foreach (var album in albums)
-                            {
-                                if (track.codeIdAlbum == album.Id)
-                                {
-                                    textBoxAlbum.Text = album.Name;
-                                    break;
-                                }
-                            }
-                            textBoxReleased.Text = DateTime.Parse(track.DateOfRelease).ToString("dd MMMM yyyy");
-                            textBoxLength.Text = track.SongLength.ToString();
-
-                            List<string> Genres = new List<string>();
-                            foreach (var genre in genres)
-                            {
-                                foreach (var trackGenre in track.codeIdGenre)
-                                {
-                                    if (genre.Id == trackGenre)
-                                    {
-                                        textBoxGenres.Text = genre.Name;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
         public void ClearMusicInfo()
         {
             textBoxAlbum.Clear();
@@ -175,8 +73,8 @@ namespace MusicViewer
                         {
                             var track = new Track
                             {
-                                codeIdAlbum = int.Parse(reader.GetAttribute("album-id")),
-                                codeIdArtist = int.Parse(reader.GetAttribute("artist-id")),
+                                CodeIdAlbum = int.Parse(reader.GetAttribute("album-id")),
+                                CodeIdArtist = int.Parse(reader.GetAttribute("artist-id")),
                                 SongLength = DateTime.Parse(reader.GetAttribute("length")).ToShortTimeString(),
                                 Name = reader.GetAttribute("name"),
                                 Id = int.Parse(reader.GetAttribute("number")),
@@ -189,7 +87,7 @@ namespace MusicViewer
 
                             while (reader.IsStartElement("genre"))
                             {
-                                track.codeIdGenre.Add(int.Parse(reader.GetAttribute("genre-id")));
+                                track.CodeIdGenre.Add(int.Parse(reader.GetAttribute("genre-id")));
                                 reader.Read();
                             }
                             trackFromFile.Add(track);
@@ -200,6 +98,108 @@ namespace MusicViewer
                 artists = artistFromFile;
                 genres = genreFromFile;
                 tracks = trackFromFile;
+            }
+        }
+
+        private void ButtonLoad_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ClearMusicInfo();
+                MusicViewerListBox.Items.Clear();
+                LoadFile(openFileDialog.FileName);
+                foreach (var artist in artists)
+                {
+                    ComboBoxSelect.Items.Add(artist);
+                }
+            }
+        }
+
+        private void MusicViewerListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClearMusicInfo();
+            foreach (var track in tracks)
+            {
+                if (MusicViewerListBox.SelectedItem != null && MusicViewerListBox.SelectedItem.ToString() == track.Name)
+                {
+                    foreach (var artist in artists)
+                    {
+                        if (track.CodeIdArtist == artist.Id)
+                        {
+                            foreach (var album in albums)
+                            {
+                                if (track.CodeIdAlbum == album.Id)
+                                {
+                                    textBoxAlbum.Text = album.Name;
+                                    break;
+                                }
+                            }
+                            textBoxReleased.Text = DateTime.Parse(track.DateOfRelease).ToString("dd MMMM yyyy");
+                            textBoxLength.Text = track.SongLength.ToString();
+
+                            List<string> Genres = new List<string>();
+                            foreach (var genre in genres)
+                            {
+                                foreach (var trackGenre in track.CodeIdGenre)
+                                {
+                                    if (genre.Id == trackGenre)
+                                    {
+                                        textBoxGenres.Text = genre.Name;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void ComboBoxSelect_SelectedValueChanged(object sender, EventArgs e)
+        {
+            MusicViewerListBox.Items.Clear();
+            ClearMusicInfo();
+            startDate = DateTime.MaxValue;
+            endDate = DateTime.MinValue;
+
+            foreach (var track in tracks)
+            {
+                foreach (var artist in artists)
+                {
+                    if (ComboBoxSelect.Text == artist.Name && track.CodeIdArtist == artist.Id)
+                    {
+                        MusicViewerListBox.Items.Add(track);
+
+                        if (DateTime.Parse(track.DateOfRelease) < startDate)
+                        {
+                            startDate = DateTime.Parse(track.DateOfRelease);
+                        }
+
+                        if (DateTime.Parse(track.DateOfRelease) > endDate)
+                        {
+                            endDate = DateTime.Parse(track.DateOfRelease);
+                        }
+                    }
+                }
+            }
+            DateTimePickerFrom.Value = startDate;
+            DateTimePickerTo.Value = endDate;
+        }
+
+        private void DateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTimePickerFrom.Value < startDate || DateTimePickerFrom.Value > DateTimePickerTo.Value)
+            {
+                DateTimePickerFrom.Value = startDate;
+            }
+        }
+
+        private void DateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateTimePickerTo.Value > endDate || DateTimePickerTo.Value < DateTimePickerFrom.Value)
+            {
+                DateTimePickerTo.Value = endDate;
             }
         }
     }

@@ -4,11 +4,11 @@ namespace MusicViewer.MusicFileProperties
 {
     internal class Track : FileItem
     {
-        public List<int> codeIdGenre { get; } = new List<int>();
+        public List<int> CodeIdGenre { get; } = new List<int>();
 
-        public int codeIdAlbum { get; set; }
+        public int CodeIdAlbum { get; set; }
 
-        public int codeIdArtist { get; set; }
+        public int CodeIdArtist { get; set; }
 
         public string SongLength { get; set; }
 

@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLoad = new System.Windows.Forms.Button();
-            this.comboBoxSelect = new System.Windows.Forms.ComboBox();
+            this.ButtonLoad = new System.Windows.Forms.Button();
+            this.ComboBoxSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.labelTo = new System.Windows.Forms.Label();
-            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.musicViewerListBox = new System.Windows.Forms.ListBox();
+            this.DateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.MusicViewerListBox = new System.Windows.Forms.ListBox();
             this.labelAlbum = new System.Windows.Forms.Label();
             this.labelReleased = new System.Windows.Forms.Label();
             this.labelLength = new System.Windows.Forms.Label();
@@ -50,26 +50,26 @@
             this.textBoxGenres = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // buttonLoad
+            // ButtonLoad
             // 
-            this.buttonLoad.Location = new System.Drawing.Point(12, 21);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(75, 23);
-            this.buttonLoad.TabIndex = 0;
-            this.buttonLoad.Text = "Load";
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            this.ButtonLoad.Location = new System.Drawing.Point(12, 21);
+            this.ButtonLoad.Name = "ButtonLoad";
+            this.ButtonLoad.Size = new System.Drawing.Size(75, 23);
+            this.ButtonLoad.TabIndex = 0;
+            this.ButtonLoad.Text = "Load";
+            this.ButtonLoad.UseVisualStyleBackColor = true;
+            this.ButtonLoad.Click += new System.EventHandler(this.ButtonLoad_Click);
             // 
-            // comboBoxSelect
+            // ComboBoxSelect
             // 
-            this.comboBoxSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSelect.FormattingEnabled = true;
-            this.comboBoxSelect.Location = new System.Drawing.Point(109, 21);
-            this.comboBoxSelect.MaxDropDownItems = 15;
-            this.comboBoxSelect.Name = "comboBoxSelect";
-            this.comboBoxSelect.Size = new System.Drawing.Size(351, 21);
-            this.comboBoxSelect.TabIndex = 1;
-            this.comboBoxSelect.SelectedValueChanged += new System.EventHandler(this.comboBoxSelect_SelectedValueChanged);
+            this.ComboBoxSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxSelect.FormattingEnabled = true;
+            this.ComboBoxSelect.Location = new System.Drawing.Point(109, 21);
+            this.ComboBoxSelect.MaxDropDownItems = 15;
+            this.ComboBoxSelect.Name = "ComboBoxSelect";
+            this.ComboBoxSelect.Size = new System.Drawing.Size(351, 21);
+            this.ComboBoxSelect.TabIndex = 1;
+            this.ComboBoxSelect.SelectedValueChanged += new System.EventHandler(this.ComboBoxSelect_SelectedValueChanged);
             // 
             // label1
             // 
@@ -81,13 +81,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "From:";
             // 
-            // dateTimePickerFrom
+            // DateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(68, 56);
-            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(160, 20);
-            this.dateTimePickerFrom.TabIndex = 3;
-            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
+            this.DateTimePickerFrom.Location = new System.Drawing.Point(68, 56);
+            this.DateTimePickerFrom.Name = "DateTimePickerFrom";
+            this.DateTimePickerFrom.Size = new System.Drawing.Size(160, 20);
+            this.DateTimePickerFrom.TabIndex = 3;
+            this.DateTimePickerFrom.ValueChanged += new System.EventHandler(this.DateTimePickerFrom_ValueChanged);
             // 
             // labelTo
             // 
@@ -99,22 +99,22 @@
             this.labelTo.TabIndex = 4;
             this.labelTo.Text = "To:";
             // 
-            // dateTimePickerTo
+            // DateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(296, 56);
-            this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(164, 20);
-            this.dateTimePickerTo.TabIndex = 5;
-            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
+            this.DateTimePickerTo.Location = new System.Drawing.Point(296, 56);
+            this.DateTimePickerTo.Name = "DateTimePickerTo";
+            this.DateTimePickerTo.Size = new System.Drawing.Size(164, 20);
+            this.DateTimePickerTo.TabIndex = 5;
+            this.DateTimePickerTo.ValueChanged += new System.EventHandler(this.DateTimePickerTo_ValueChanged);
             // 
-            // musicViewerListBox
+            // MusicViewerListBox
             // 
-            this.musicViewerListBox.FormattingEnabled = true;
-            this.musicViewerListBox.Location = new System.Drawing.Point(16, 92);
-            this.musicViewerListBox.Name = "musicViewerListBox";
-            this.musicViewerListBox.Size = new System.Drawing.Size(212, 238);
-            this.musicViewerListBox.TabIndex = 6;
-            this.musicViewerListBox.SelectedIndexChanged += new System.EventHandler(this.musicViewerListBox_SelectedIndexChanged);
+            this.MusicViewerListBox.FormattingEnabled = true;
+            this.MusicViewerListBox.Location = new System.Drawing.Point(16, 92);
+            this.MusicViewerListBox.Name = "MusicViewerListBox";
+            this.MusicViewerListBox.Size = new System.Drawing.Size(212, 238);
+            this.MusicViewerListBox.TabIndex = 6;
+            this.MusicViewerListBox.SelectedIndexChanged += new System.EventHandler(this.MusicViewerListBox_SelectedIndexChanged);
             // 
             // labelAlbum
             // 
@@ -246,13 +246,13 @@
             this.Controls.Add(this.labelLength);
             this.Controls.Add(this.labelReleased);
             this.Controls.Add(this.labelAlbum);
-            this.Controls.Add(this.musicViewerListBox);
-            this.Controls.Add(this.dateTimePickerTo);
+            this.Controls.Add(this.MusicViewerListBox);
+            this.Controls.Add(this.DateTimePickerTo);
             this.Controls.Add(this.labelTo);
-            this.Controls.Add(this.dateTimePickerFrom);
+            this.Controls.Add(this.DateTimePickerFrom);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxSelect);
-            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.ComboBoxSelect);
+            this.Controls.Add(this.ButtonLoad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -265,13 +265,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLoad;
-        private System.Windows.Forms.ComboBox comboBoxSelect;
+        private System.Windows.Forms.Button ButtonLoad;
+        private System.Windows.Forms.ComboBox ComboBoxSelect;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.DateTimePicker DateTimePickerFrom;
         private System.Windows.Forms.Label labelTo;
-        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
-        private System.Windows.Forms.ListBox musicViewerListBox;
+        private System.Windows.Forms.DateTimePicker DateTimePickerTo;
+        private System.Windows.Forms.ListBox MusicViewerListBox;
         private System.Windows.Forms.Label labelAlbum;
         private System.Windows.Forms.Label labelReleased;
         private System.Windows.Forms.Label labelLength;

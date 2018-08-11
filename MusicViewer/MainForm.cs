@@ -13,9 +13,9 @@ namespace MusicViewer
         private IEnumerable<Genre> genres;
         private IEnumerable<Track> tracks;
 
-        private DateTime startDate;
         private DateTime endDate;
-
+        private DateTime startDate;
+        
         public MainForm()
         {
             InitializeComponent();
@@ -101,7 +101,7 @@ namespace MusicViewer
                                     break;
                                 }
                             }
-                            textBoxReleased.Text = DateTime.Parse(track.DateOfRelease).ToString("dd MMMM yyyy");
+                            textBoxReleased.Text = DateTime.Parse(track.DateOfRelease).ToString("d MMMM yyyy");
                             textBoxLength.Text = track.SongLength.ToString();
 
                             List<string> Genres = new List<string>();

@@ -9,7 +9,7 @@ namespace MusicViewer.MusicFileProperties
         public int CodeIdArtist { get; set; }
 
         public List<int> CodeIdGenre { get; } = new List<int>();
-
+        
         public string DateOfRelease { get; set; }
 
         public string SongLength { get; set; }       
